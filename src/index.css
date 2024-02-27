@@ -1,3 +1,12 @@
+@import "@fontsource-variable/nunito";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Nunito Variable", sans-serif;
+    @apply bg-very-light-gray;
+  }
+}
