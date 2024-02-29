@@ -1,6 +1,6 @@
 const CountryCard = ({ country }) => {
   return (
-    <div className="h-full overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-lg">
+    <div className="h-full overflow-hidden rounded-lg bg-white shadow-sm shadow-neutral-300 transition-shadow hover:shadow-lg">
       <img
         src={country.flags.png}
         alt={country.flags.alt}
