@@ -1,13 +1,18 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
-const DropdownMenu = () => {
+const DropdownMenu = ({ selectedRegion, handleRegionSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "All"];
 
   const handleClick = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const onRegionSelect = (region) => {
+    handleRegionSelect(region);
+    setIsOpen(false);
   };
 
   return (
@@ -16,16 +21,17 @@ const DropdownMenu = () => {
         className="flex w-full items-center justify-between rounded bg-white px-5 py-3 font-medium shadow-sm"
         onClick={handleClick}
       >
-        Filter by region
+        {selectedRegion || "Filter by region"}
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </button>
 
       {isOpen && (
         <ul className="absolute top-14 w-full space-y-1 rounded bg-white p-2 shadow-lg">
-          {regions.map((region, index) => (
+          {regions.map((region) => (
             <li
-              key={index}
+              key={region}
               className="cursor-pointer rounded px-2 py-1 hover:bg-very-light-gray"
+              onClick={() => onRegionSelect(region)}
             >
               {region}
             </li>
