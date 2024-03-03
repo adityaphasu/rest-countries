@@ -12,7 +12,7 @@ const BorderCountries = ({ borderCodes }) => {
         <Link
           to={`/country/${country.name.common}`}
           key={country.cca2}
-          className="rounded-md bg-white px-5 py-2 text-[14px] shadow-lg transition-shadow hover:shadow-xl"
+          className="rounded-md bg-white px-5 py-2 text-sm shadow-lg transition-shadow hover:bg-dark-blue hover:text-white hover:shadow-xl dark:bg-dark-blue dark:hover:bg-white dark:hover:text-dark-blue "
         >
           {country.name.common}
         </Link>

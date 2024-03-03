@@ -28,7 +28,7 @@ const Home = () => {
   );
 
   return (
-    <div className="m-4 space-y-5 md:m-10 md:space-y-10">
+    <div className="space-y-5 p-4 md:space-y-10 md:p-10">
       <div className="flex flex-col gap-5 lg:flex-row lg:justify-between">
         <SearchBar handleSearch={handleSearch} />
         <DropdownMenu

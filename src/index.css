@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
   body {
     font-family: "Nunito Variable", sans-serif;
     @apply bg-very-light-gray;

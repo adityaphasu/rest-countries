@@ -42,11 +42,10 @@ const Country = () => {
   const borderCountries = data && data[0]?.borders;
 
   return (
-    <div className="m-8 space-y-20 lg:space-y-10">
+    <div className="h-full space-y-20 p-8 lg:space-y-10">
       <Link
         to="/"
-        className="flex w-max items-center gap-3 rounded-md bg-white px-7 py-2 shadow-lg 
-        transition-shadow hover:shadow-xl"
+        className="flex w-max items-center gap-3 rounded-md bg-white px-7 py-2 shadow-lg transition-shadow hover:bg-dark-blue hover:text-white hover:shadow-xl dark:bg-dark-blue dark:hover:bg-white dark:hover:text-dark-blue"
       >
         <ArrowLeft />
         Home
