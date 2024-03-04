@@ -1,8 +1,12 @@
 import { useState } from "react";
+
+import useFetch from "../hooks/useFetch";
+
 import CountryCard from "../components/CountryCard";
 import DropdownMenu from "../components/DropdownMenu";
 import SearchBar from "../components/SearchBar";
-import useFetch from "../hooks/useFetch";
+import { MagnifyingGlass } from "react-loader-spinner";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const { data, loading } = useFetch("https://restcountries.com/v3.1/all");
@@ -36,13 +40,12 @@ const Home = () => {
           handleRegionSelect={handleRegionSelect}
         />
       </div>
-      <div className="space-y-4">
+      <div className="relative space-y-4">
         <h2 className="text-xl font-bold">
           Total Countries: {filteredCountries?.length}
         </h2>
-
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <section className="grid gap-8 sm:grid-cols-2 md:gap-16 lg:grid-cols-3 xl:grid-cols-4">
             {filteredCountries?.map((country) => (

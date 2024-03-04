@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 import DetailsList from "../components/DetailsList";
 import BorderCountries from "../components/BorderCountries";
+import Loader from "../components/Loader";
 
 const Country = () => {
   const { countryName } = useParams();
@@ -52,7 +53,7 @@ const Country = () => {
       </Link>
 
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         data && (
           <section className="grid gap-16 lg:grid-cols-2">
