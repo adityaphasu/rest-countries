@@ -1,10 +1,10 @@
 const CountryCard = ({ country }) => {
   return (
-    <div className="h-full overflow-hidden rounded-lg bg-white shadow-sm shadow-neutral-300 hover:shadow-lg dark:bg-dark-blue dark:shadow-very-dark-blue2 hover:dark:shadow-very-dark-blue1">
+    <div className="h-full overflow-hidden rounded-sm bg-white shadow-sm shadow-neutral-300 hover:shadow-lg dark:bg-dark-blue dark:shadow-very-dark-blue2 hover:dark:shadow-very-dark-blue1">
       <img
-        src={country.flags.svg}
+        src={country.flags.png}
         alt={country.flags.alt || country.name.common}
-        className="w-full object-cover object-center sm:h-48"
+        className="aspect-[19/11.5] w-full"
       />
       <div className="space-y-2 px-7 py-8">
         <h2 className="text-3xl font-bold md:text-2xl">
@@ -21,7 +21,7 @@ const CountryCard = ({ country }) => {
           </li>
           <li>
             <span className="font-semibold">Capital: </span>
-            {country.capital && country.capital[0]}
+            {(country.capital && country.capital[0]) || "None"}
           </li>
         </ul>
       </div>
