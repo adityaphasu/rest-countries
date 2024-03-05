@@ -28,7 +28,7 @@ const DropdownMenu = ({ selectedRegion, handleRegionSelect }) => {
       </button>
 
       {isOpen && (
-        <ul className="absolute top-14 w-full space-y-1 rounded bg-white p-2 shadow-lg dark:bg-dark-blue dark:shadow-very-dark-blue2">
+        <ul className="absolute top-14 z-50 w-full space-y-1 rounded bg-white p-2 shadow-lg dark:bg-dark-blue dark:shadow-very-dark-blue2">
           {regions.map((region) => (
             <li
               key={region}

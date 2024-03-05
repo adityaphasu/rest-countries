@@ -5,7 +5,6 @@ import useFetch from "../hooks/useFetch";
 import CountryCard from "../components/CountryCard";
 import DropdownMenu from "../components/DropdownMenu";
 import SearchBar from "../components/SearchBar";
-import { MagnifyingGlass } from "react-loader-spinner";
 import Loader from "../components/Loader";
 
 const Home = () => {
@@ -33,6 +32,7 @@ const Home = () => {
 
   return (
     <div className="space-y-5 p-4 md:space-y-10 md:p-10">
+      <h1 className="sr-only">Countries</h1>
       <div className="flex flex-col gap-5 lg:flex-row lg:justify-between">
         <SearchBar handleSearch={handleSearch} />
         <DropdownMenu
@@ -47,7 +47,7 @@ const Home = () => {
         {loading ? (
           <Loader />
         ) : (
-          <section className="grid gap-8 sm:grid-cols-2 md:gap-16 lg:grid-cols-3 xl:grid-cols-4">
+          <section className="grid gap-8 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {filteredCountries?.map((country) => (
               <a
                 href={`/country/${country.name.common}`}
