@@ -1,11 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-
-import { ArrowLeft } from "lucide-react";
 
 import DetailsList from "../components/DetailsList";
 import BorderCountries from "../components/BorderCountries";
 import Loader from "../components/Loader";
+import BackButton from "../components/BackButton";
 
 const Country = () => {
   const { countryName } = useParams();
@@ -18,23 +17,30 @@ const Country = () => {
   // Extracting the data
   const countryDetails = data && {
     main: [
-      { label: "Native name", value: data[0]?.altSpellings[1] },
-      { label: "Population", value: data[0]?.population?.toLocaleString() },
-      { label: "Region", value: data[0]?.region },
-      { label: "Sub Region", value: data[0]?.subregion },
-      { label: "Capital", value: data[0]?.capital },
+      { label: "Native name", value: data[0]?.altSpellings[1] || "None" },
+      {
+        label: "Population",
+        value: data[0]?.population?.toLocaleString() || "None",
+      },
+      { label: "Region", value: data[0]?.region || "None" },
+      { label: "Sub Region", value: data[0]?.subregion || "None" },
+      { label: "Capital", value: data[0]?.capital || "None" },
     ],
     additonal: [
-      { label: "Top Level Domain", value: data[0]?.tld[0] },
+      { label: "Top Level Domain", value: data[0]?.tld[0] || "None" },
       {
         label: "Currencies",
-        value: Object.values(data[0]?.currencies)
-          .map((currency) => currency.name)
-          .join(", "),
+        value: data[0]?.currencies
+          ? Object.values(data[0]?.currencies)
+              .map((currency) => currency.name)
+              .join(", ")
+          : "None",
       },
       {
         label: "Languages",
-        value: Object.values(data[0]?.languages).join(", "),
+        value: data[0]?.languages
+          ? Object.values(data[0]?.languages).join(", ")
+          : "None",
       },
     ],
   };
@@ -44,13 +50,7 @@ const Country = () => {
 
   return (
     <div className="h-full space-y-20 p-8 lg:space-y-10">
-      <Link
-        to="/"
-        className="flex w-max items-center gap-3 rounded-md bg-white px-7 py-2 shadow-lg transition-shadow hover:bg-dark-blue hover:text-white hover:shadow-xl dark:bg-dark-blue dark:hover:bg-white dark:hover:text-dark-blue"
-      >
-        <ArrowLeft />
-        Home
-      </Link>
+      <BackButton />
 
       {loading ? (
         <Loader />
@@ -63,9 +63,9 @@ const Country = () => {
               className="w-full"
             />
             <div className="space-y-8 lg:self-center">
-              <h2 className="text-2xl font-bold">{data[0].name.common}</h2>
+              <h1 className="text-2xl font-bold">{data[0].name.common}</h1>
               <div className="space-y-12">
-                <div className="space-y-12 lg:flex lg:gap-5 lg:space-y-0">
+                <div className="space-y-12 lg:flex lg:gap-14 lg:space-y-0">
                   <DetailsList data={countryDetails.main} />
                   <DetailsList data={countryDetails.additonal} />
                 </div>
