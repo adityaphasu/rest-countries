@@ -4,7 +4,7 @@ const DetailsList = ({ data }) => {
       {data.map((detail) => (
         <li key={detail.label} className="flex gap-2 text-sm">
           <span className="font-bold">{detail.label}:</span>
-          {detail.value}
+          {detail.value || "None"}
         </li>
       ))}
     </ul>

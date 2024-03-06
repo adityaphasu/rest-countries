@@ -17,30 +17,29 @@ const Country = () => {
   // Extracting the data
   const countryDetails = data && {
     main: [
-      { label: "Native name", value: data[0]?.altSpellings[1] || "None" },
+      { label: "Native name", value: data[0]?.altSpellings[1] },
       {
         label: "Population",
-        value: data[0]?.population?.toLocaleString() || "None",
+        value: data[0]?.population?.toLocaleString(),
       },
-      { label: "Region", value: data[0]?.region || "None" },
-      { label: "Sub Region", value: data[0]?.subregion || "None" },
-      { label: "Capital", value: data[0]?.capital || "None" },
+      { label: "Region", value: data[0]?.region },
+      { label: "Sub Region", value: data[0]?.subregion },
+      { label: "Capital", value: data[0]?.capital },
     ],
     additonal: [
-      { label: "Top Level Domain", value: data[0]?.tld[0] || "None" },
+      { label: "Top Level Domain", value: data[0]?.tld[0] },
       {
         label: "Currencies",
-        value: data[0]?.currencies
-          ? Object.values(data[0]?.currencies)
-              .map((currency) => currency.name)
-              .join(", ")
-          : "None",
+        value:
+          data[0]?.currencies &&
+          Object.values(data[0]?.currencies)
+            .map((currency) => currency.name)
+            .join(", "),
       },
       {
         label: "Languages",
-        value: data[0]?.languages
-          ? Object.values(data[0]?.languages).join(", ")
-          : "None",
+        value:
+          data[0]?.languages && Object.values(data[0]?.languages).join(", "),
       },
     ],
   };
