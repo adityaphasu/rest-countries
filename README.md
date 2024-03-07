@@ -1,7 +1,5 @@
 # REST Countries
 
-## Description
-
 This is a simple web application that uses the [REST Countries API](https://restcountries.com/) to display information about countries. This is a [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). The appliction is built with [React](https://reactjs.org/) and uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ![preview](./public/desktop-preview.jpg)
@@ -17,6 +15,8 @@ This is a simple web application that uses the [REST Countries API](https://rest
 - 📱 **Responsive**: The application is responsive and works on all devices.
 
 ## Live Site
+
+- Website - [https://rest-countries-psi-six.vercel.app/](https://rest-countries-psi-six.vercel.app/)
 
 ## Technologies Used
 
